@@ -2,7 +2,7 @@
 const output = document.getElementById("output");
 
 const loadingRow = document.createElement("tr");
-loadingRow.innerHTML = `<td colspan="2">Loading...</td>`;
+loadingRow.innerHTML = `<td colspan="2" id="loading">Loading...</td>`;
 output.appendChild(loadingRow);
 
 function createRandomPromise(name) {
@@ -12,7 +12,7 @@ function createRandomPromise(name) {
   return new Promise(resolve => {
     setTimeout(() => {
       const end = performance.now();
-      const duration = ((end - start) / 1000).toFixed(3);
+      const duration = parseFloat((end - start) / 1000).toFixed(3);
       resolve({ name, duration });
     }, delay * 1000);
   });
